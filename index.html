@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FARZIN | Personal Website</title>
+
+    <meta name="description" content="Farzin's personal website. Strategy, football, coding and ambition.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           SCROLLBAR
+        ========================= */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #8b0000;
+            border-radius: 10px;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(
+                circle,
+                rgba(255, 0, 0, 0.10),
+                transparent 70%
+            );
+            top: -250px;
+            left: -200px;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(
+                circle,
+                rgba(255, 70, 0, 0.08),
+                transparent 70%
+            );
+            bottom: -200px;
+            right: -150px;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #ff3333;
+            border-radius: 50%;
+            opacity: 0.35;
+            animation: floatParticle linear infinite;
+        }
+
+        @keyframes floatParticle {
+            from {
+                transform: translateY(110vh);
+            }
+
+            to {
+                transform: translateY(-10vh);
+            }
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 75px;
+            background: rgba(5, 5, 5, 0.82);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 0, 0, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #e00000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #bbbbbb;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff2222;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 120px 8% 70px;
+            gap: 50px;
+        }
+
+        .hero-content {
+            width: 52%;
+            animation: heroIn 1s ease forwards;
+        }
+
+        @keyframes heroIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .small-title {
+            color: #ff2525;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 8vw, 110px);
+            line-height: 0.9;
+            font-weight: 950;
+            letter-spacing: -5px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 span {
+            color: #e00000;
+            text-shadow:
+                0 0 20px rgba(255, 0, 0, 0.25),
+                0 0 50px rgba(255, 0, 0, 0.12);
+        }
+
+        .hero-description {
+            max-width: 580px;
+            color: #9b9b9b;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 28px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn-red {
+            background: #d90000;
+            color: white;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.15);
+        }
+
+        .btn-red:hover {
+            background: #ff1717;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 35px rgba(255, 0, 0, 0.25);
+        }
+
+        .btn-outline {
+            border: 1px solid #444;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            border-color: #e00000;
+            color: #ff2222;
+            transform: translateY(-4px);
+        }
+
+        /* =========================
+           FOX CONTAINER
+        ========================= */
+
+        .fox-area {
+            width: 48%;
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1200px;
+        }
+
+        .fox-scene {
+            width: 470px;
+            height: 470px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease-out;
+            animation: foxFloat 5s ease-in-out infinite;
+        }
+
+        @keyframes foxFloat {
+            0%, 100% {
+                transform: translateY(0) rotateX(0deg) rotateY(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotateX(2deg) rotateY(-3deg);
+            }
+        }
+
+        .fox-glow {
+            position: absolute;
+            width: 370px;
+            height: 370px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(255, 30, 0, 0.22),
+                rgba(120, 0, 0, 0.08),
+                transparent 70%
+            );
+            filter: blur(25px);
+            left: 50px;
+            top: 50px;
+            transform: translateZ(-80px);
+        }
+
+        .fox-shadow {
+            position: absolute;
+            width: 300px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.8);
+            filter: blur(20px);
+            left: 85px;
+            bottom: 30px;
+            transform: translateZ(-100px);
+        }
+
+        .fox {
+            position: absolute;
+            width: 360px;
+            height: 390px;
+            left: 55px;
+            top: 30px;
+            transform-style: preserve-3d;
+        }
+
+        /* =========================
+           FOX EARS
+        ========================= */
+
+        .ear {
+            position: absolute;
+            width: 115px;
+            height: 180px;
+            top: 0;
+            z-index: 2;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff6a22 0%,
+                    #c52d0b 40%,
+                    #581207 100%
+                );
+            filter: drop-shadow(8px 12px 10px rgba(0,0,0,0.6));
+        }
+
+        .ear::after {
+            content: "";
+            position: absolute;
+            width: 55px;
+            height: 115px;
+            left: 30px;
+            top: 30px;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+            background:
+                linear-gradient(
+                    180deg,
+                    #191919,
+                    #5c1111
+                );
+        }
+
+        .ear-left {
+            left: 20px;
+            transform: rotate(-16deg) translateZ(20px);
+        }
+
+        .ear-right {
+            right: 20px;
+            transform: rotate(16deg) translateZ(20px);
+        }
+
+        /* =========================
+           FOX HEAD
+        ========================= */
+
+        .fox-head {
+            position: absolute;
+            width: 330px;
+            height: 300px;
+            left: 15px;
+            top: 80px;
+            background:
+                radial-gradient(
+                    circle at 35% 20%,
+                    #ff7a28 0%,
+                    #d83b0d 32%,
+                    #8d1e0a 65%,
+                    #350b05 100%
+                );
+            clip-path: polygon(
+                50% 0%,
+                78% 12%,
+                96% 39%,
+                86% 72%,
+                67% 94%,
+                50% 100%,
+                33% 94%,
+                14% 72%,
+                4% 39%,
+                22% 12%
+            );
+            transform-style: preserve-3d;
+            box-shadow:
+                20px 30px 30px rgba(0,0,0,0.7);
+            z-index: 3;
+        }
+
+        /* =========================
+           FOX FACE LIGHT
+        ========================= */
+
+        .face-light {
+            position: absolute;
+            width: 230px;
+            height: 170px;
+            left: 50px;
+            top: 25px;
+            background:
+                radial-gradient(
+                    ellipse,
+                    rgba(255, 190, 100, 0.35),
+                    transparent 70%
+                );
+            filter: blur(10px);
+        }
+
+        /* =========================
+           FOX CHEEKS
+        ========================= */
+
+        .cheek {
+            position: absolute;
+            width: 125px;
+            height: 150px;
+            bottom: 20px;
+            background:
+                linear-gradient(
+                    145deg,
+                    #f6eee5 0%,
+                    #d8cec3 40%,
+                    #8f8278 100%
+                );
+            z-index: 4;
+        }
+
+        .cheek-left {
+            left: 40px;
+            clip-path: polygon(
+                0 0,
+                100% 25%,
+                80% 100%,
+                35% 85%
+            );
+            transform: translateZ(35px);
+        }
+
+        .cheek-right {
+            right: 40px;
+            clip-path: polygon(
+                100% 0,
+                0 25%,
+                20% 100%,
+                65% 85%
+            );
+            transform: translateZ(35px);
+        }
+
+        /* =========================
+           EYES
+        ========================= */
+
+        .eye {
+            position: absolute;
+            width: 75px;
+            height: 48px;
+            top: 125px;
+            background: #090909;
+            z-index: 8;
+            border-radius: 50%;
+            box-shadow:
+                0 0 12px rgba(255, 120, 20, 0.4);
+        }
+
+        .eye-left {
+            left: 55px;
+            transform: rotate(8deg) translateZ(45px);
+        }
+
+        .eye-right {
+            right: 55px;
+            transform: rotate(-8deg) translateZ(45px);
+        }
+
+        .eye::before {
+            content: "";
+            position: absolute;
+            width: 38px;
+            height: 30px;
+            background: radial-gradient(
+                circle,
+                #ffcf68 0%,
+                #ff5a00 45%,
+                #8e1500 100%
+            );
+            border-radius: 50%;
+            left: 18px;
+            top: 9px;
+        }
+
+        .eye::after {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 28px;
+            background: #000;
+            border-radius: 50%;
+            left: 35px;
+            top: 10px;
+        }
+
+        /* =========================
+           NOSE
+        ========================= */
+
+        .nose {
+            position: absolute;
+            width: 58px;
+            height: 45px;
+            left: 136px;
+            top: 220px;
+            background:
+                linear-gradient(
+                    145deg,
+                    #202020,
+                    #000
+                );
+            clip-path: polygon(
+                50% 0,
+                100% 40%,
+                80% 85%,
+                50% 100%,
+                20% 85%,
+                0 40%
+            );
+            z-index: 10;
+            transform: translateZ(65px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.7);
+        }
+
+        /* =========================
+           MUZZLE
+        ========================= */
+
+        .muzzle {
+            position: absolute;
+            width: 150px;
+            height: 100px;
+            left: 90px;
+            top: 205px;
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    #fffaf3,
+                    #d9d1c9 70%,
+                    #9c9189
+                );
+            border-radius: 50%;
+            z-index: 6;
+            transform: translateZ(40px);
+        }
+
+        .mouth {
+            position: absolute;
+            width: 80px;
+            height: 35px;
+            left: 125px;
+            top: 260px;
+            z-index: 11;
+            border-bottom: 4px solid #171717;
+            border-radius: 50%;
+            transform: translateZ(70px);
+        }
+
+        /* =========================
+           FOX NECK / BODY
+        ========================= */
+
+        .fox-body {
+            position: absolute;
+            width: 250px;
+            height: 160px;
+            left: 55px;
+            bottom: 0;
+            border-radius: 50% 50% 20% 20%;
+            background:
+                linear-gradient(
+                    135deg,
+                    #df4310,
+                    #711807 55%,
+                    #240602
+                );
+            z-index: 1;
+            transform: translateZ(-10px);
+            filter: drop-shadow(15px 20px 20px rgba(0,0,0,0.6));
+        }
+
+        .fur-highlight {
+            position: absolute;
+            width: 140px;
+            height: 120px;
+            left: 55px;
+            top: 15px;
+            border-radius: 50%;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255,150,70,0.35),
+                    transparent 70%
+                );
+            filter: blur(10px);
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        section {
+            padding: 110px 8%;
+        }
+
+        .section-title {
+            font-size: 46px;
+            font-weight: 900;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #e00000;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+        }
+
+        .about-text {
+            color: #9d9d9d;
+            font-size: 17px;
+            line-height: 2;
+        }
+
+        .about-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info-box {
+            padding: 25px;
+            background: #0c0c0c;
+            border: 1px solid #1c1c1c;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            border-color: #8b0000;
+        }
+
+        .info-box h3 {
+            color: #e00000;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-box p {
+            color: #ddd;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            background: #080808;
+        }
+
+        .skill {
+            margin-bottom: 30px;
+        }
+
+        .skill-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #ddd;
+            font-weight: bold;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: #1c1c1c;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(
+                90deg,
+                #7d0000,
+                #ff2222
+            );
+            border-radius: 20px;
+            transition: width 1.5s ease;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #0b0b0b;
+            border: 1px solid #1c1c1c;
+            padding: 35px;
+            min-height: 250px;
+            border-radius: 8px;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            left: 0;
+            top: 0;
+            background: #d90000;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #480000;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-number {
+            color: #620000;
+            font-size: 45px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #858585;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           QUOTE
+        ========================= */
+
+        .quote-section {
+            text-align: center;
+            padding: 150px 10%;
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(100,0,0,0.20),
+                    transparent 65%
+                );
+        }
+
+        .quote-mark {
+            font-size: 90px;
+            color: #750000;
+            font-weight: 900;
+            line-height: 0.5;
+            margin-bottom: 35px;
+        }
+
+        .quote {
+            max-width: 950px;
+            margin: auto;
+            font-size: clamp(30px, 5vw, 62px);
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -2px;
+        }
+
+        .quote span {
+            color: #e00000;
+        }
+
+        .quote-author {
+            margin-top: 30px;
+            color: #888;
+            font-size: 16px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            background: #080808;
+        }
+
+        .contact-form {
+            max-width: 750px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            background: #0e0e0e;
+            border: 1px solid #222;
+            color: white;
+            padding: 17px;
+            border-radius: 5px;
+            outline: none;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+
+        .input-group textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: #9b0000;
+            box-shadow: 0 0 15px rgba(255,0,0,0.08);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            background: #030303;
+            border-top: 1px solid #111;
+            color: #666;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: #d90000;
+        }
+
+        /* =========================
+           REVEAL ANIMATION
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.9s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           TOP BUTTON
+        ========================= */
+
+        .top-btn {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 45px;
+            height: 45px;
+            background: #d90000;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: none;
+            z-index: 999;
+        }
+
+        .top-btn.show {
+            display: block;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: #080808;
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+                padding: 30px 0;
+                display: none;
+                border-bottom: 1px solid #222;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 140px;
+            }
+
+            .hero-content,
+            .fox-area {
+                width: 100%;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .fox-area {
+                min-height: 480px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 520px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .hero {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .fox-scene {
+                transform: scale(0.78);
+            }
+
+            .about-info {
+                grid-template-columns: 1fr;
+            }
+
+            .quote {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         PARTICLES
+    ========================== -->
+
+    <div class="particles" id="particles"></div>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav>
+
+        <div class="logo">
+            FAR<span>ZIN</span>
+        </div>
+
+        <div class="menu-btn" id="menuBtn">
+            ☰
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#quote">Quote</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Personal Website
+            </div>
+
+            <h1>
+                FAR<span>ZIN</span>
+            </h1>
+
+            <p class="hero-description">
+                Football. Strategy. Coding.
+                <br>
+                One path. No excuses.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#about" class="btn btn-red">
+                    Explore
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             FOX
+        ========================== -->
+
+        <div class="fox-area">
+
+            <div class="fox-scene" id="foxScene">
+
+                <div class="fox-glow"></div>
+
+                <div class="fox-shadow"></div>
+
+                <div class="fox">
+
+                    <div class="fox-body">
+                        <div class="fur-highlight"></div>
+                    </div>
+
+                    <div class="ear ear-left"></div>
+                    <div class="ear ear-right"></div>
+
+                    <div class="fox-head">
+
+                        <div class="face-light"></div>
+
+                        <div class="eye eye-left"></div>
+                        <div class="eye eye-right"></div>
+
+                        <div class="cheek cheek-left"></div>
+                        <div class="cheek cheek-right"></div>
+
+                        <div class="muzzle"></div>
+
+                        <div class="nose"></div>
+
+                        <div class="mouth"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about reveal" id="about">
+
+        <h2 class="section-title">
+            About <span>Me</span>
+        </h2>
+
+        <div class="about-grid">
+
+            <p class="about-text">
+                I am Farzin.
+                I am interested in football, strategy and technology.
+                I like understanding how things work, improving my skills
+                and building my own path.
+                <br><br>
+                I prefer action over empty words.
+                Every challenge is another opportunity to improve.
+            </p>
+
+
+            <div class="about-info">
+
+                <div class="info-box">
+                    <h3>Focus</h3>
+                    <p>Strategy & Growth</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>Sport</h3>
+                    <p>Football</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>Interest</h3>
+                    <p>Programming</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>Mindset</h3>
+                    <p>Never Stop Improving</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section class="skills reveal" id="skills">
+
+        <h2 class="section-title">
+            My <span>Skills</span>
+        </h2>
+
+        <div class="skill">
+
+            <div class="skill-top">
+                <span>Football</span>
+                <span>90%</span>
+            </div>
+
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="90%"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-top">
+                <span>Strategy</span>
+                <span>95%</span>
+            </div>
+
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="95%"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-top">
+                <span>Programming</span>
+                <span>70%</span>
+            </div>
+
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="70%"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-top">
+                <span>Problem Solving</span>
+                <span>88%</span>
+            </div>
+
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="88%"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section class="reveal" id="projects">
+
+        <h2 class="section-title">
+            My <span>Projects</span>
+        </h2>
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    01
+                </div>
+
+                <h3>Personal Website</h3>
+
+                <p>
+                    A personal website built with HTML, CSS and JavaScript.
+                </p>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    02
+                </div>
+
+                <h3>Python</h3>
+
+                <p>
+                    Learning Python and developing problem-solving skills
+                    through programming.
+                </p>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    03
+                </div>
+
+                <h3>Future Project</h3>
+
+                <p>
+                    More projects are coming.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MAIN QUOTE
+    ========================== -->
+
+    <section class="quote-section reveal" id="quote">
+
+        <div class="quote-mark">
+            “
+        </div>
+
+        <div class="quote">
+            If you can't be the <span>hero</span>,
+            defeat the hero.
+        </div>
+
+        <div class="quote-author">
+            — Yoichi Isagi
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="contact reveal" id="contact">
+
+        <h2 class="section-title">
+            Contact <span>Me</span>
+        </h2>
+
+        <form class="contact-form" id="contactForm">
+
+            <div class="input-group">
+                <input
+                    type="text"
+                    placeholder="Your Name"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <input
+                    type="email"
+                    placeholder="Your Email"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <textarea
+                    placeholder="Your Message"
+                    required
+                ></textarea>
+            </div>
+
+            <button
+                type="submit"
+                class="btn btn-red"
+            >
+                Send Message
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        © 2026 <span>Farzin</span>.
+        All Rights Reserved.
+
+    </footer>
+
+
+    <!-- =========================
+         BACK TO TOP
+    ========================== -->
+
+    <button class="top-btn" id="topBtn">
+        ↑
+    </button>
+
+
+    <script>
+
+        /* =========================
+           MOBILE MENU
+        ========================== */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+            });
+
+        });
+
+
+        /* =========================
+           PARTICLES
+        ========================== */
+
+        const particles = document.getElementById("particles");
+
+        for (let i = 0; i < 35; i++) {
+
+            const particle = document.createElement("div");
+
+            particle.classList.add("particle");
+
+            particle.style.left = Math.random() * 100 + "%";
+
+            particle.style.animationDuration =
+                (8 + Math.random() * 15) + "s";
+
+            particle.style.animationDelay =
+                Math.random() * 10 + "s";
+
+            particle.style.opacity =
+                0.1 + Math.random() * 0.4;
+
+            particles.appendChild(particle);
+        }
+
+
+        /* =========================
+           FOX MOUSE 3D EFFECT
+        ========================== */
+
+        const foxScene = document.getElementById("foxScene");
+
+        document.addEventListener("mousemove", (event) => {
+
+            const x = (window.innerWidth / 2 - event.clientX) / 35;
+
+            const y = (window.innerHeight / 2 - event.clientY) / 35;
+
+            foxScene.style.transform =
+                `rotateY(${x}deg) rotateX(${y}deg)`;
+
+        });
+
+
+        /* =========================
+           SCROLL REVEAL
+        ========================== */
+
+        const reveals =
+            document.querySelectorAll(".reveal");
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("active");
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+
+        reveals.forEach(element => {
+            observer.observe(element);
+        });
+
+
+        /* =========================
+           SKILL BARS
+        ========================== */
+
+        const skillSection =
+            document.getElementById("skills");
+
+        const skillObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    if (entries[0].isIntersecting) {
+
+                        document
+                            .querySelectorAll(".skill-progress")
+                            .forEach(bar => {
+
+                                bar.style.width =
+                                    bar.dataset.width;
+
+                            });
+
+                        skillObserver.disconnect();
+                    }
+
+                },
+                {
+                    threshold: 0.3
+                }
+            );
+
+
+        skillObserver.observe(skillSection);
+
+
+        /* =========================
+           CONTACT FORM
+        ========================== */
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        contactForm.addEventListener("submit", event => {
+
+            event.preventDefault();
+
+            alert(
+                "Message received. This form is currently a demo."
+            );
+
+            contactForm.reset();
+
+        });
+
+
+        /* =========================
+           BACK TO TOP
+        ========================== */
+
+        const topBtn =
+            document.getElementById("topBtn");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 500) {
+                topBtn.classList.add("show");
+            } else {
+                topBtn.classList.remove("show");
+            }
+
+        });
+
+
+        topBtn.addEventListener("click", () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
