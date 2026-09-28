@@ -1,15 +1,16 @@
-
+```html
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090909">
-  <title>فرزین حسن‌زاده | وب‌سایت شخصی</title>
+
+  <title>Farzin Hasanzade | Personal Website</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -34,10 +35,10 @@
     }
 
     body {
-      font-family: "Vazirmatn", sans-serif;
+      font-family: "Inter", sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.9;
+      line-height: 1.8;
       overflow-x: hidden;
     }
 
@@ -50,18 +51,22 @@
       font: inherit;
     }
 
-    /* نوار بالای سایت */
+    /* =========================
+       NAVBAR
+    ========================= */
+
     .navbar {
       position: absolute;
       z-index: 10;
       top: 0;
-      right: 0;
+      left: 0;
       width: 100%;
       padding: 22px 8%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
+
       background: linear-gradient(
         to bottom,
         rgba(0,0,0,.65),
@@ -73,6 +78,7 @@
       font-size: 1.3rem;
       font-weight: 900;
       white-space: nowrap;
+      letter-spacing: 1px;
     }
 
     .logo span {
@@ -106,15 +112,22 @@
       cursor: pointer;
     }
 
-    /* بخش اصلی: تصویر فقط همین‌جاست */
+    /* =========================
+       HERO
+    ========================= */
+
     .hero {
       min-height: 100svh;
       position: relative;
       isolation: isolate;
+
       display: flex;
       align-items: center;
+
       padding: 140px 10% 100px;
+
       background-color: #111;
+
       background-image:
         linear-gradient(
           90deg,
@@ -123,28 +136,30 @@
           rgba(5,5,5,.76) 100%
         ),
         url("./fox-background.png.png");
+
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
 
-    /* نور قرمز پایین تصویر */
     .hero::after {
       content: "";
       position: absolute;
       z-index: -1;
       inset: auto 0 0;
       height: 180px;
+
       background: linear-gradient(
         to bottom,
         transparent,
         var(--bg)
       );
+
       pointer-events: none;
     }
 
     .hero-content {
-      width: min(650px, 100%);
+      width: min(700px, 100%);
       animation: enter .9s ease both;
     }
 
@@ -152,24 +167,31 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
+
       color: #ff6b7c;
-      font-size: .95rem;
+      font-size: .9rem;
       font-weight: 700;
+      letter-spacing: 2px;
+
       margin-bottom: 18px;
     }
 
     .eyebrow::before {
       content: "";
+
       width: 28px;
       height: 2px;
+
       background: var(--red);
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 5.2rem);
-      line-height: 1.35;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1.05;
       font-weight: 900;
-      margin-bottom: 18px;
+
+      margin-bottom: 22px;
+
       text-shadow: 0 4px 30px rgba(0,0,0,.5);
     }
 
@@ -177,10 +199,25 @@
       color: var(--red-light);
     }
 
+    .hero-motto {
+      display: inline-block;
+
+      color: #ffffff;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-weight: 700;
+
+      border-left: 3px solid var(--red);
+      padding-left: 15px;
+
+      margin-bottom: 20px;
+    }
+
     .hero p {
-      max-width: 560px;
-      color: #e0e0e0;
-      font-size: 1.08rem;
+      max-width: 620px;
+
+      color: #d7d7d7;
+      font-size: 1.05rem;
+
       margin-bottom: 32px;
     }
 
@@ -194,11 +231,19 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+
       padding: 12px 25px;
+
       border-radius: 9px;
+
       font-weight: 700;
+
       border: 1px solid transparent;
-      transition: transform .25s, background .25s;
+
+      transition:
+        transform .25s,
+        background .25s,
+        border-color .25s;
     }
 
     .btn:hover {
@@ -208,6 +253,7 @@
     .btn-primary {
       background: var(--red);
       color: white;
+
       box-shadow: 0 8px 28px rgba(229,9,37,.22);
     }
 
@@ -217,24 +263,32 @@
 
     .btn-outline {
       border-color: rgba(255,255,255,.35);
+
       background: rgba(0,0,0,.22);
       color: white;
     }
 
     .btn-outline:hover {
       background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.6);
     }
 
     .scroll-hint {
       position: absolute;
+
       bottom: 34px;
-      right: 50%;
-      transform: translateX(50%);
+      left: 50%;
+
+      transform: translateX(-50%);
+
       color: #ccc;
+
       font-size: .8rem;
+
       display: flex;
       align-items: center;
       gap: 9px;
+
       opacity: .8;
     }
 
@@ -243,7 +297,10 @@
       font-size: 1.2rem;
     }
 
-    /* بخش‌های عادی سایت */
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
     .section {
       padding: 100px 10%;
       background: var(--bg);
@@ -260,11 +317,13 @@
     .section-heading small {
       color: var(--red-light);
       font-weight: 700;
+      letter-spacing: 1px;
     }
 
     .section-heading h2 {
       font-size: clamp(1.8rem, 4vw, 2.7rem);
-      line-height: 1.5;
+      line-height: 1.3;
+
       margin-top: 8px;
     }
 
@@ -275,20 +334,28 @@
     .section-heading p {
       color: var(--muted);
       max-width: 650px;
+
       margin-top: 12px;
     }
+
+    /* =========================
+       ABOUT
+    ========================= */
 
     .about-grid {
       display: grid;
       grid-template-columns: 1.2fr .8fr;
       gap: 28px;
+
       align-items: stretch;
     }
 
     .panel {
       background: var(--panel);
+
       border: 1px solid var(--border);
       border-radius: 18px;
+
       padding: 30px;
     }
 
@@ -304,8 +371,10 @@
     .accent-line {
       width: 48px;
       height: 3px;
+
       background: var(--red);
       border-radius: 5px;
+
       margin: 18px 0;
     }
 
@@ -317,23 +386,38 @@
 
     .stat {
       background: #191919;
+
       border: 1px solid var(--border);
       border-radius: 14px;
+
       padding: 20px;
+
+      transition: transform .25s, border-color .25s;
+    }
+
+    .stat:hover {
+      transform: translateY(-4px);
+      border-color: rgba(229,9,37,.5);
     }
 
     .stat strong {
       display: block;
+
       color: var(--red-light);
-      font-size: 1.5rem;
+      font-size: 1.25rem;
+
+      margin-bottom: 3px;
     }
 
     .stat span {
       color: var(--muted);
-      font-size: .9rem;
+      font-size: .85rem;
     }
 
-    /* مهارت‌ها */
+    /* =========================
+       SKILLS
+    ========================= */
+
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -342,10 +426,19 @@
 
     .skill-card {
       padding: 25px;
+
       border: 1px solid var(--border);
       border-radius: 15px;
-      background: linear-gradient(145deg, #171717, #101010);
-      transition: border-color .25s, transform .25s;
+
+      background: linear-gradient(
+        145deg,
+        #171717,
+        #101010
+      );
+
+      transition:
+        border-color .25s,
+        transform .25s;
     }
 
     .skill-card:hover {
@@ -356,6 +449,7 @@
     .skill-icon {
       color: var(--red-light);
       font-size: 1.8rem;
+
       margin-bottom: 12px;
     }
 
@@ -368,7 +462,10 @@
       font-size: .92rem;
     }
 
-    /* پروژه‌ها */
+    /* =========================
+       PROJECTS
+    ========================= */
+
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -377,10 +474,15 @@
 
     .project-card {
       overflow: hidden;
+
       border: 1px solid var(--border);
       background: #121212;
+
       border-radius: 16px;
-      transition: transform .25s, border-color .25s;
+
+      transition:
+        transform .25s,
+        border-color .25s;
     }
 
     .project-card:hover {
@@ -390,8 +492,10 @@
 
     .project-top {
       min-height: 150px;
+
       display: grid;
       place-items: center;
+
       background:
         radial-gradient(
           circle at 50% 20%,
@@ -399,7 +503,9 @@
           transparent 65%
         ),
         #181818;
+
       color: var(--red-light);
+
       font-size: 2.5rem;
       font-weight: 900;
     }
@@ -411,25 +517,39 @@
     .project-info p {
       color: var(--muted);
       font-size: .92rem;
+
       margin-top: 8px;
     }
 
     .project-tag {
       display: inline-block;
+
       color: #ff8795;
+
       background: rgba(229,9,37,.12);
+
       border: 1px solid rgba(229,9,37,.25);
+
       border-radius: 20px;
+
       padding: 3px 11px;
+
       font-size: .75rem;
+
       margin-top: 16px;
     }
 
-    /* نقل قول */
+    /* =========================
+       QUOTE
+    ========================= */
+
     .quote-box {
-      border-right: 4px solid var(--red);
+      border-left: 4px solid var(--red);
+
       background: #141414;
+
       padding: 32px;
+
       border-radius: 12px;
     }
 
@@ -440,19 +560,29 @@
 
     .quote-box span {
       display: block;
+
       color: var(--red-light);
+
       margin-top: 14px;
     }
 
-    /* تماس */
+    /* =========================
+       CONTACT
+    ========================= */
+
     .contact-box {
       display: flex;
+
       justify-content: space-between;
       align-items: center;
+
       gap: 30px;
+
       padding: 35px;
+
       border: 1px solid rgba(229,9,37,.28);
       border-radius: 18px;
+
       background:
         radial-gradient(
           circle at 100% 0%,
@@ -467,12 +597,25 @@
       margin-top: 8px;
     }
 
+    .contact-title span {
+      color: var(--red-light);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
       padding: 28px 10%;
+
       text-align: center;
+
       color: #888;
+
       border-top: 1px solid var(--border);
+
       background: #080808;
+
       font-size: .9rem;
     }
 
@@ -480,37 +623,60 @@
       color: var(--red-light);
     }
 
+    /* =========================
+       BACK TO TOP
+    ========================= */
+
     .back-top {
       position: fixed;
+
       z-index: 20;
+
       bottom: 22px;
       left: 22px;
+
       width: 45px;
       height: 45px;
+
       display: grid;
       place-items: center;
+
       background: var(--red);
       color: white;
+
       border: 0;
       border-radius: 12px;
+
       font-size: 1.3rem;
+
       cursor: pointer;
+
       opacity: 0;
       visibility: hidden;
+
       transform: translateY(10px);
+
       transition: .25s;
     }
 
     .back-top.show {
       opacity: 1;
       visibility: visible;
+
       transform: translateY(0);
     }
+
+    /* =========================
+       SCROLL REVEAL
+    ========================= */
 
     .reveal {
       opacity: 0;
       transform: translateY(24px);
-      transition: opacity .7s ease, transform .7s ease;
+
+      transition:
+        opacity .7s ease,
+        transform .7s ease;
     }
 
     .reveal.visible {
@@ -523,13 +689,19 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
+    /* =========================
+       TABLET
+    ========================= */
+
     @media (max-width: 900px) {
+
       .about-grid {
         grid-template-columns: 1fr;
       }
@@ -549,26 +721,39 @@
 
       .hero {
         padding: 130px 7% 100px;
+
         background-position: 58% center;
       }
     }
 
+    /* =========================
+       MOBILE
+    ========================= */
+
     @media (max-width: 650px) {
+
       .menu-btn {
         display: block;
       }
 
       .nav-links {
         display: none;
+
         position: absolute;
+
         top: 76px;
         right: 5%;
         left: 5%;
+
         padding: 20px;
+
         flex-direction: column;
         align-items: stretch;
+
         gap: 14px;
+
         background: #111;
+
         border: 1px solid var(--border);
         border-radius: 14px;
       }
@@ -584,12 +769,22 @@
 
       .hero {
         min-height: 90svh;
+
         background-position: 60% center;
+
         padding: 125px 7% 100px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 15vw, 4.5rem);
       }
 
       .hero p {
         font-size: 1rem;
+      }
+
+      .hero-motto {
+        font-size: .95rem;
       }
 
       .section {
@@ -603,21 +798,34 @@
 
       .contact-box {
         align-items: flex-start;
+
         flex-direction: column;
+
         padding: 26px;
       }
 
       .scroll-hint {
         bottom: 22px;
       }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
+    /* =========================
+       REDUCED MOTION
+    ========================= */
+
     @media (prefers-reduced-motion: reduce) {
+
       html {
         scroll-behavior: auto;
       }
 
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
       }
@@ -632,267 +840,688 @@
 
 <body>
 
-  <header class="navbar">
-    <a class="logo" href="#home">FARZIN<span>.</span></a>
+  <!-- =========================
+       NAVBAR
+  ========================= -->
 
-    <button class="menu-btn" id="menuBtn"
-      aria-label="باز کردن منو"
-      aria-expanded="false">
+  <header class="navbar">
+
+    <a class="logo" href="#home">
+      FARZIN<span>.</span>
+    </a>
+
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
       ☰
     </button>
 
     <nav>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home">خانه</a></li>
-        <li><a href="#about">درباره من</a></li>
-        <li><a href="#skills">مهارت‌ها</a></li>
-        <li><a href="#projects">پروژه‌ها</a></li>
-        <li><a href="#contact">ارتباط</a></li>
+
+        <li>
+          <a href="#home">Home</a>
+        </li>
+
+        <li>
+          <a href="#about">About Me</a>
+        </li>
+
+        <li>
+          <a href="#skills">Skills</a>
+        </li>
+
+        <li>
+          <a href="#projects">Projects</a>
+        </li>
+
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+
       </ul>
     </nav>
+
   </header>
 
+
   <main>
-    <!-- تصویر روباه فقط در این بخش قرار دارد -->
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
     <section class="hero" id="home">
+
       <div class="hero-content">
-        <div class="eyebrow">به دنیای من خوش آمدی</div>
+
+        <div class="eyebrow">
+          WELCOME TO MY WORLD
+        </div>
 
         <h1>
-          من فرزینم؛<br>
-          <span>متفاوت فکر می‌کنم.</span>
+          I AM<br>
+          <span>FARZIN.</span>
         </h1>
 
+        <div class="hero-motto">
+          If you can't be the hero, defeat the hero.
+        </div>
+
         <p>
-          اینجا دنیای شخصی منه؛ جایی برای معرفی خودم،
-          علایقم، مهارت‌هام و چیزهایی که می‌سازم.
+          I’m driven by ambition, football, technology, and the constant
+          pursuit of becoming better. I observe, I learn, I create, and I
+          keep moving forward — always looking for the next challenge.
         </p>
 
         <div class="hero-buttons">
-          <a href="#about" class="btn btn-primary">
-            بیشتر درباره من
+
+          <a
+            href="#about"
+            class="btn btn-primary"
+          >
+            ABOUT ME
           </a>
 
-          <a href="#projects" class="btn btn-outline">
-            دیدن پروژه‌ها
+          <a
+            href="#projects"
+            class="btn btn-outline"
+          >
+            MY PROJECTS
           </a>
+
         </div>
+
       </div>
 
-      <a href="#about" class="scroll-hint">
-        برای ادامه اسکرول کن <span>↓</span>
+      <a
+        href="#about"
+        class="scroll-hint"
+      >
+        Scroll to explore
+        <span>↓</span>
       </a>
+
     </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
 
     <section class="section" id="about">
+
       <div class="section-heading reveal">
-        <small>درباره من</small>
-        <h2>کمی بیشتر <span>با من آشنا شو</span></h2>
+
+        <small>ABOUT ME</small>
+
+        <h2>
+          Get to know
+          <span>me.</span>
+        </h2>
+
         <p>
-          این بخش برای معرفی خودت و نوشتن چیزهایی است
-          که دوست داری بازدیدکننده‌ها درباره‌ات بدانند.
+          A little look into who I am, what drives me,
+          and the things that matter to me.
         </p>
+
       </div>
+
 
       <div class="about-grid">
-        <div class="panel reveal">
-          <h3>من چه کسی هستم؟</h3>
-          <div class="accent-line"></div>
-          <p>
-            من فرزین حسن‌زاده هستم. به یادگیری، تجربه‌های جدید
-            و ساختن چیزهای متفاوت علاقه دارم. این وب‌سایت
-            فضای شخصی منه تا علایق و مسیرم رو با دیگران به
-            اشتراک بذارم.
-          </p>
-        </div>
 
         <div class="panel reveal">
-          <h3>چیزهایی که برام مهم‌اند</h3>
-          <div class="stats">
-            <div class="stat">
-              <strong>خلاقیت</strong>
-              <span>ایده‌های تازه</span>
-            </div>
-            <div class="stat">
-              <strong>یادگیری</strong>
-              <span>رشد و پیشرفت</span>
-            </div>
-            <div class="stat">
-              <strong>تمرکز</strong>
-              <span>دنبال‌کردن هدف</span>
-            </div>
-            <div class="stat">
-              <strong>تلاش</strong>
-              <span>ساختن آینده</span>
-            </div>
-          </div>
+
+          <h3>
+            Who am I?
+          </h3>
+
+          <div class="accent-line"></div>
+
+          <p>
+            I’m Farzin Hasanzade. I’m someone who enjoys learning,
+            challenging myself, exploring new ideas, and building
+            things that feel meaningful. I believe progress comes
+            from curiosity, discipline, experience, and the courage
+            to keep going when things become difficult.
+          </p>
+
+          <br>
+
+          <p>
+            Football, technology, creativity, and personal growth
+            are important parts of my journey. This website is a
+            place where I can bring those interests together and
+            share a small part of my world.
+          </p>
+
         </div>
+
+
+        <div class="panel reveal">
+
+          <h3>
+            What matters to me
+          </h3>
+
+          <div class="stats">
+
+            <div class="stat">
+              <strong>Creativity</strong>
+              <span>Thinking beyond the obvious.</span>
+            </div>
+
+            <div class="stat">
+              <strong>Learning</strong>
+              <span>Always improving and evolving.</span>
+            </div>
+
+            <div class="stat">
+              <strong>Focus</strong>
+              <span>Staying committed to the goal.</span>
+            </div>
+
+            <div class="stat">
+              <strong>Ambition</strong>
+              <span>Never settling for less.</span>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+
     </section>
 
-    <section class="section section-alt" id="skills">
+
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section
+      class="section section-alt"
+      id="skills"
+    >
+
       <div class="section-heading reveal">
-        <small>مهارت‌ها و علایق</small>
-        <h2>چیزهایی که <span>دوست دارم</span></h2>
+
+        <small>SKILLS & INTERESTS</small>
+
+        <h2>
+          Things that
+          <span>drive me.</span>
+        </h2>
+
         <p>
-          این کارت‌ها نمونه‌اند؛ می‌تونی عنوان‌ها و توضیحات
-          رو با مهارت‌ها و علاقه‌های واقعی خودت عوض کنی.
+          The areas I enjoy exploring, developing, and
+          becoming better at.
         </p>
+
       </div>
+
 
       <div class="skills-grid">
-        <article class="skill-card reveal">
-          <div class="skill-icon">✦</div>
-          <h3>طراحی و خلاقیت</h3>
-          <p>ساخت ایده‌های تازه و تبدیل آن‌ها به تجربه‌های جذاب.</p>
-        </article>
 
         <article class="skill-card reveal">
-          <div class="skill-icon">⌘</div>
-          <h3>تکنولوژی</h3>
-          <p>یادگیری ابزارها و آشنایی با دنیای فناوری.</p>
+
+          <div class="skill-icon">
+            ✦
+          </div>
+
+          <h3>
+            Creativity
+          </h3>
+
+          <p>
+            Exploring new ideas, finding different approaches,
+            and turning imagination into something real.
+          </p>
+
         </article>
 
+
         <article class="skill-card reveal">
-          <div class="skill-icon">⚡</div>
-          <h3>هدف‌گذاری</h3>
-          <p>تلاش برای پیشرفت و یادگیری قدم‌به‌قدم.</p>
+
+          <div class="skill-icon">
+            ⚽
+          </div>
+
+          <h3>
+            Football
+          </h3>
+
+          <p>
+            A game of vision, intelligence, discipline,
+            competition, and constant improvement.
+          </p>
+
         </article>
+
+
+        <article class="skill-card reveal">
+
+          <div class="skill-icon">
+            ⌘
+          </div>
+
+          <h3>
+            Technology
+          </h3>
+
+          <p>
+            Learning how technology works and using it
+            to build, experiment, and solve problems.
+          </p>
+
+        </article>
+
+
+        <article class="skill-card reveal">
+
+          <div class="skill-icon">
+            ⚡
+          </div>
+
+          <h3>
+            Problem Solving
+          </h3>
+
+          <p>
+            Breaking difficult problems into smaller pieces
+            and searching for practical solutions.
+          </p>
+
+        </article>
+
+
+        <article class="skill-card reveal">
+
+          <div class="skill-icon">
+            ◈
+          </div>
+
+          <h3>
+            Strategy
+          </h3>
+
+          <p>
+            Observing the situation, thinking ahead,
+            and choosing the right moment to act.
+          </p>
+
+        </article>
+
+
+        <article class="skill-card reveal">
+
+          <div class="skill-icon">
+            ∞
+          </div>
+
+          <h3>
+            Growth
+          </h3>
+
+          <p>
+            Treating every experience as an opportunity
+            to learn something new.
+          </p>
+
+        </article>
+
       </div>
+
     </section>
 
-    <section class="section" id="projects">
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section
+      class="section"
+      id="projects"
+    >
+
       <div class="section-heading reveal">
-        <small>نمونه‌کارها</small>
-        <h2>پروژه‌های <span>من</span></h2>
+
+        <small>PROJECTS</small>
+
+        <h2>
+          Things I
+          <span>build.</span>
+        </h2>
+
         <p>
-          پروژه‌ها و کارهایی که می‌خوای معرفی کنی،
-          می‌تونن در این قسمت نمایش داده بشن.
+          A collection of projects, experiments, and ideas
+          that represent what I’m learning and creating.
         </p>
+
       </div>
+
 
       <div class="projects-grid">
-        <article class="project-card reveal">
-          <div class="project-top">01</div>
-          <div class="project-info">
-            <h3>پروژه اول</h3>
-            <p>توضیح کوتاهی درباره این پروژه بنویس.</p>
-            <span class="project-tag">نمونه‌کار</span>
-          </div>
-        </article>
 
         <article class="project-card reveal">
-          <div class="project-top">02</div>
-          <div class="project-info">
-            <h3>پروژه دوم</h3>
-            <p>اینجا می‌تونی درباره یک کار یا ایده توضیح بدی.</p>
-            <span class="project-tag">ایده</span>
+
+          <div class="project-top">
+            01
           </div>
+
+          <div class="project-info">
+
+            <h3>
+              Personal Website
+            </h3>
+
+            <p>
+              A personal website designed to introduce me,
+              my interests, my ideas, and the things I create.
+            </p>
+
+            <span class="project-tag">
+              Web Development
+            </span>
+
+          </div>
+
         </article>
 
+
         <article class="project-card reveal">
-          <div class="project-top">03</div>
-          <div class="project-info">
-            <h3>پروژه سوم</h3>
-            <p>وقتی پروژه جدیدی داشتی، این کارت رو به‌روزرسانی کن.</p>
-            <span class="project-tag">در حال توسعه</span>
+
+          <div class="project-top">
+            02
           </div>
+
+          <div class="project-info">
+
+            <h3>
+              Python Journey
+            </h3>
+
+            <p>
+              Exploring programming, problem solving,
+              and building a stronger foundation in Python.
+            </p>
+
+            <span class="project-tag">
+              Python
+            </span>
+
+          </div>
+
         </article>
+
+
+        <article class="project-card reveal">
+
+          <div class="project-top">
+            03
+          </div>
+
+          <div class="project-info">
+
+            <h3>
+              Future Projects
+            </h3>
+
+            <p>
+              More ideas are coming. This space will grow
+              as I learn, experiment, and build new things.
+            </p>
+
+            <span class="project-tag">
+              Coming Soon
+            </span>
+
+          </div>
+
+        </article>
+
       </div>
+
     </section>
+
+
+    <!-- =========================
+         QUOTE
+    ========================= -->
 
     <section class="section section-alt">
+
       <div class="quote-box reveal">
+
         <p>
-          «هر قدم کوچیک، می‌تونه شروع یک مسیر بزرگ باشه.»
+          “If you can't be the hero, defeat the hero.”
         </p>
-        <span>— یادآوری برای خودم</span>
+
+        <span>
+          — Yoichi Isagi
+        </span>
+
       </div>
+
     </section>
 
-    <section class="section" id="contact">
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section
+      class="section"
+      id="contact"
+    >
+
       <div class="contact-box reveal">
+
         <div>
-          <small style="color: var(--red-light);">ارتباط</small>
-          <h2>راهی برای <span style="color:var(--red-light)">ارتباط</span></h2>
+
+          <small style="color: var(--red-light);">
+            CONTACT
+          </small>
+
+          <h2 class="contact-title">
+            Let's <span>connect.</span>
+          </h2>
+
           <p>
-            اینجا می‌تونی لینک شبکه‌های اجتماعی یا راه ارتباطی
-            موردنظرت رو قرار بدی.
+            Want to see more of what I’m building?
+            You can find me on GitHub.
           </p>
+
         </div>
 
-        <!-- آدرس لینک را با لینک واقعی خودت جایگزین کن -->
-        <a class="btn btn-primary"
-           href="https://github.com/farzinhasanzade"
-           target="_blank"
-           rel="noopener noreferrer">
-          مشاهده گیت‌هاب
+
+        <a
+          class="btn btn-primary"
+          href="https://github.com/farzinhasanzade"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VIEW MY GITHUB
         </a>
+
       </div>
+
     </section>
+
   </main>
 
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
-    ساخته‌شده با <span>♥</span> توسط فرزین حسن‌زاده
+
+    Built with
+    <span>♥</span>
+    by Farzin Hasanzade
+
   </footer>
 
-  <button class="back-top" id="backTop"
-    aria-label="بازگشت به بالای صفحه">
+
+  <!-- =========================
+       BACK TO TOP
+  ========================= -->
+
+  <button
+    class="back-top"
+    id="backTop"
+    aria-label="Back to top"
+  >
     ↑
   </button>
 
+
   <script>
-    // منوی موبایل
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
 
     menuBtn.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      menuBtn.setAttribute("aria-expanded", String(isOpen));
-      menuBtn.textContent = isOpen ? "✕" : "☰";
+
+      const isOpen =
+        navLinks.classList.toggle("open");
+
+      menuBtn.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuBtn.textContent =
+        isOpen ? "✕" : "☰";
+
     });
 
-    // بستن منو پس از انتخاب لینک
-    navLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuBtn.setAttribute("aria-expanded", "false");
-        menuBtn.textContent = "☰";
+
+    /* =========================
+       CLOSE MOBILE MENU
+    ========================= */
+
+    navLinks
+      .querySelectorAll("a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          navLinks.classList.remove("open");
+
+          menuBtn.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          menuBtn.textContent = "☰";
+
+        });
+
       });
-    });
 
-    // ظاهر شدن بخش‌ها هنگام اسکرول
-    const revealItems = document.querySelectorAll(".reveal");
+
+    /* =========================
+       SCROLL REVEAL
+    ========================= */
+
+    const revealItems =
+      document.querySelectorAll(".reveal");
+
 
     if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
 
-      revealItems.forEach(item => observer.observe(item));
+      const observer =
+        new IntersectionObserver(
+          (entries) => {
+
+            entries.forEach(entry => {
+
+              if (entry.isIntersecting) {
+
+                entry.target.classList.add(
+                  "visible"
+                );
+
+                observer.unobserve(
+                  entry.target
+                );
+
+              }
+
+            });
+
+          },
+          {
+            threshold: 0.12
+          }
+        );
+
+
+      revealItems.forEach(item => {
+
+        observer.observe(item);
+
+      });
+
     } else {
-      revealItems.forEach(item => item.classList.add("visible"));
+
+      revealItems.forEach(item => {
+
+        item.classList.add("visible");
+
+      });
+
     }
 
-    // دکمه بازگشت به بالا
-    const backTop = document.getElementById("backTop");
 
-    window.addEventListener("scroll", () => {
-      backTop.classList.toggle("show", window.scrollY > 450);
-    });
+    /* =========================
+       BACK TO TOP
+    ========================= */
 
-    backTop.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
+    const backTop =
+      document.getElementById("backTop");
+
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        backTop.classList.toggle(
+          "show",
+          window.scrollY > 450
+        );
+
+      }
+    );
+
+
+    backTop.addEventListener(
+      "click",
+      () => {
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+    );
+
   </script>
 
 </body>
 </html>
+```
